@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#070a0e" />
+  <meta name="description" content="经典坦克大战（Battle City）网页版：纯 HTML5 Canvas 实现，零依赖，保护基地、消灭敌军、闯关升级。" />
+  <meta name="author" content="Tank Battle" />
+  <title>坦克大战 · Tank Battle</title>
+  <link rel="icon" type="image/svg+xml" href="assets/icon.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="hud">
+      <div class="hud__item"><span class="hud__label">得分</span><strong id="hud-score">0</strong></div>
+      <div class="hud__item"><span class="hud__label">生命</span><strong id="hud-lives">3</strong></div>
+      <div class="hud__item"><span class="hud__label">关卡</span><strong id="hud-level">1</strong></div>
+      <div class="hud__item hud__item--wide"><span class="hud__label">剩余敌人</span><strong id="hud-enemies">0</strong></div>
+    </header>
+
+    <div class="stage">
+      <canvas id="game" width="640" height="480" aria-label="坦克大战游戏画面" role="img"></canvas>
+      <div id="overlay" class="overlay" aria-live="polite"></div>
+    </div>
+
+    <footer class="tips">
+      <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> / <kbd>↑</kbd><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd> 移动
+      · <kbd>空格</kbd> 射击 · <kbd>P</kbd> 暂停 · <kbd>M</kbd> 静音 · <kbd>R</kbd> 重开
+    </footer>
+  </main>
+
+  <div class="touch" id="touch" hidden>
+    <div class="touch__dpad">
+      <button class="touch__btn touch__btn--up"    data-key="up"    aria-label="上">▲</button>
+      <button class="touch__btn touch__btn--left"  data-key="left"  aria-label="左">◀</button>
+      <button class="touch__btn touch__btn--down"  data-key="down"  aria-label="下">▼</button>
+      <button class="touch__btn touch__btn--right" data-key="right" aria-label="右">▶</button>
+    </div>
+    <button class="touch__fire" data-key="fire" aria-label="发射">发射</button>
+  </div>
+
+  <script src="js/game.js"></script>
+</body>
+</html>
